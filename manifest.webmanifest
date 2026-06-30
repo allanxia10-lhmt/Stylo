@@ -1,0 +1,17 @@
+{
+  "name": "Stylo",
+  "short_name": "Stylo",
+  "description": "AI fashion and smart closet platform.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#080911",
+  "theme_color": "#080911",
+  "icons": [
+    {
+      "src": "assets/app-icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
