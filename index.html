@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Stylo is an AI fashion and smart closet platform." />
+    <meta name="theme-color" content="#080911" />
+    <title>Stylo - Your Style Perfected</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#home" data-route="home"><img src="assets/app-icon.svg" alt="" /><span><b>stylo</b><small>Your Style Perfected</small></span></a>
+      <nav class="tabs" aria-label="Primary navigation">
+        <button class="tab active" data-route="home">Home</button>
+        <button class="tab" data-route="closet">Closet + Outfits</button>
+        <button class="tab" data-route="community">Community</button>
+        <button class="tab" data-route="tryon">Try-On</button>
+        <button class="tab" data-route="discover">Discover</button>
+        <button class="tab" data-route="insights">Insights</button>
+        <button class="tab" data-route="profile">Profile</button>
+      </nav>
+      <div class="actions"><button id="themeToggle" class="icon">◐</button><button id="openAuth" class="ghost">Sign in</button><button id="openPrefs" class="primary">Start</button></div>
+    </header>
+
+    <main>
+      <section id="home" class="view active">
+        <div class="hero">
+          <div>
+            <p class="eyebrow">AI Fashion Operating System</p>
+            <h1><span>stylo</span>Your Style Perfected.</h1>
+            <p>Digitize your closet, generate AI outfits, virtually try on looks, shop smarter, and learn your personal style over time.</p>
+            <div class="row"><button class="primary" data-route="closet">Generate outfit</button><button class="glass" data-route="community">Explore community</button></div>
+            <div class="stats"><article><b>312</b><span>Items</span></article><article><b>92</b><span>Style score</span></article><article><b>18</b><span>Saved looks</span></article></div>
+          </div>
+          <div class="phone"><img src="assets/logo.svg" alt="Stylo logo" /><div class="model"><i></i><b></b><em></em><strong></strong></div><section><b>92% Match</b><p>Balanced neutrals, clean silhouette, confident finish.</p></section></div>
+        </div>
+      </section>
+
+      <section id="closet" class="view">
+        <div class="title"><p class="eyebrow">Smart Closet + AI Outfits</p><h2>Upload, search inside photos, and build complete looks.</h2></div>
+        <div class="grid two">
+          <article class="panel"><div id="dropzone" class="drop"><input id="closetUpload" type="file" multiple accept="image/*" /><b>Drop closet photos here</b><span>Camera, gallery, or drag and drop</span><button id="chooseFiles" class="primary">Choose images</button></div><div class="chips"><span>Shirt</span><span>Pants</span><span>Shoes</span><span>Bag</span><span>Material</span><span>Season</span></div></article>
+          <article class="panel"><div class="panelHead"><div><p class="eyebrow">Inventory</p><h3>Detected items</h3></div><button id="sortCloset" class="glass">Smart sort</button></div><div id="inventoryGrid" class="items"><article><i class="piece blazer"></i><b>Taupe blazer</b><span>Wool · business</span></article><article><i class="piece dress"></i><b>Black dress</b><span>Evening · formal</span></article><article><i class="piece bag"></i><b>Violet tote</b><span>Leather · accent</span></article><article><i class="piece sneaker"></i><b>White sneaker</b><span>Canvas · casual</span></article></div></article>
+        </div>
+        <div class="grid two lower">
+          <article class="panel"><div class="panelHead"><div><p class="eyebrow">Visual Search</p><h3>Search pieces inside a photo</h3></div><button id="resetPhotoSearch" class="glass">Reset</button></div><div class="photo"><button class="hot active" data-piece="blazer">Blazer</button><button class="hot shirt" data-piece="shirt">Shirt</button><button class="hot pants" data-piece="pants">Pants</button><button class="hot shoes" data-piece="shoes">Shoes</button><div class="model"><i></i><b></b><em></em><strong></strong></div></div><label>Find a piece<input id="pieceSearchInput" value="blazer" /></label><button id="pieceSearchButton" class="primary wide">Search photo</button><div id="detectedPieces" class="results"></div></article>
+          <article class="panel"><p class="eyebrow">AI Outfit Generator</p><h3 id="outfitTitle">Balanced business casual</h3><div class="form"><label>Occasion<select><option>Business Casual</option><option>Date Night</option><option>Interview</option><option>Travel</option></select></label><label>Aesthetic<select><option>Minimalist</option><option>Old Money</option><option>Streetwear</option></select></label></div><div id="outfitPieces" class="items outfit"><article><i class="piece blazer"></i><b>Taupe blazer</b></article><article><i class="piece shirt"></i><b>Black tee</b></article><article><i class="piece pants"></i><b>Charcoal trouser</b></article><article><i class="piece sneaker"></i><b>White sneaker</b></article></div><p id="outfitReason">Balanced neutrals elongate the silhouette while the sneaker keeps the look relaxed.</p><div class="row"><button id="generateOutfit" class="primary">Generate look</button><button id="replaceShoes" class="glass">Replace shoes</button><button class="glass save">♡ Save</button></div></article>
+        </div>
+      </section>
+
+      <section id="community" class="view">
+        <div class="title"><p class="eyebrow">Community</p><h2>Post outfits, rate 1-5 stars, comment, and search pieces inside photos.</h2></div>
+        <div class="grid two"><article class="panel"><p class="eyebrow">Post</p><h3>Share today’s outfit</h3><label>Caption<input id="communityCaption" value="Client meeting look with clean neutrals" /></label><button id="publishOutfit" class="primary wide">Publish outfit</button></article><article class="panel"><p class="eyebrow">Photo Search</p><h3>Find pieces in community looks</h3><label>Clothing piece<input id="communityPieceSearch" value="bag" /></label><button id="communityPieceButton" class="primary wide">Search photos</button><div id="communitySearchResult" class="result"><b>Violet tote found</b><span>3 looks · 91% visual match</span></div></article></div>
+        <div id="communityFeed" class="feed"><article class="post"><div class="photo violet"><button class="hot bag active" data-piece="bag">Bag</button><button class="hot" data-piece="blazer">Blazer</button><div class="model"><i></i><b></b><em></em><strong></strong></div></div><div><div class="author"><span>A</span><b>Alex Rivera</b></div><p>Clean client-meeting neutrals with a relaxed sneaker finish.</p><div class="stars" data-rating="4"><button>★</button><button>★</button><button>★</button><button>★</button><button>☆</button><span>4.2</span></div><div class="comments"><article><b>Mia</b><span>The proportions are excellent.</span></article></div><form class="comment"><input placeholder="Leave a comment" /><button class="icon">↑</button></form></div></article></div>
+      </section>
+
+      <section id="tryon" class="view"><div class="title"><p class="eyebrow">Virtual Try-On</p><h2>Preview full outfits with consent-first controls.</h2></div><div class="grid two"><article class="panel"><div class="photo large"><div class="model"><i></i><b></b><em></em><strong></strong></div></div></article><article class="panel"><h3>Private try-on session</h3><p>Photos and avatars stay private by default and can be deleted anytime.</p><label class="check"><input type="checkbox" checked /> Allow this try-on render</label><button id="animateTryon" class="primary wide">Render</button></article></div></section>
+      <section id="discover" class="view"><div class="title"><p class="eyebrow">Shop Discover</p><h2>Find missing pieces without losing your taste.</h2></div><div class="search"><input id="discoverSearch" value="Find white sneakers under $100" /><button id="runDiscover" class="primary">Search</button></div><div class="items products"><article><i class="piece sneaker"></i><b>Clean white sneaker</b><span>$89 · authorized retailer</span></article><article><i class="piece blazer"></i><b>Soft-shoulder blazer</b><span>$148 · official brand</span></article><article><i class="piece bag"></i><b>Violet city tote</b><span>$126 · official brand</span></article></div></section>
+      <section id="insights" class="view"><div class="title"><p class="eyebrow">Wardrobe Intelligence</p><h2>Know what earns its place in your closet.</h2></div><div class="grid two"><article class="panel"><h3>Closet performance</h3><div class="bars"><i></i><i></i><i></i><i></i><i></i></div></article><article class="panel"><h3>Week view</h3><div class="week"><span>Mon<br>Client</span><span>Tue<br>Travel</span><span>Wed<br>Dinner</span><span>Thu<br>Office</span><span>Fri<br>Date</span></div></article></div></section>
+      <section id="profile" class="view"><div class="title"><p class="eyebrow">Profile</p><h2>Your fit, taste, and sign-in preferences.</h2></div><div class="grid two"><article class="panel profile"><span id="avatar">A</span><b id="profileNameText">Guest stylist</b><small id="profileEmailText">Sign in to save your profile</small><button id="signOut" class="glass wide">Sign out</button></article><article class="panel"><form id="profileForm" class="form"><label>Name<input id="profileName" value="Alex Rivera" /></label><label>Email<input id="profileEmail" value="alex@example.com" /></label><label>Clothing size<input id="profileSize" value="M / 32" /></label><label>Shoe size<input id="profileShoe" value="10.5" /></label><label>Budget<select id="profileBudget"><option>$100-$250 per item</option><option>Under $100 per item</option><option>$250-$500 per item</option></select></label><label>Favorite colors<input id="profileColors" value="Black, taupe, violet" /></label><button class="primary wide">Save preferences</button></form></article></div></section>
+    </main>
+
+    <dialog id="authModal"><form id="authForm" method="dialog" class="modal"><button class="close" value="cancel">×</button><p class="eyebrow">Secure Access</p><h2>Sign in to Stylo</h2><label>Email<input id="authEmail" type="email" value="alex@example.com" /></label><label>Password<input id="authPassword" type="password" value="stylo-demo" /></label><button class="primary wide">Continue</button><div class="grid two"><button id="googleSignIn" type="button" class="glass">Continue with Google</button><button id="appleSignIn" type="button" class="glass">Continue with Apple</button></div><button id="forgotPassword" type="button" class="link">Forgot password?</button><div id="resetPanel" hidden><label>Recovery email<input id="resetEmail" /></label><button id="sendReset" type="button" class="glass wide">Send reset link</button></div></form></dialog>
+    <dialog id="prefsModal"><form id="prefsForm" method="dialog" class="modal"><button class="close" value="cancel">×</button><p class="eyebrow">First Setup</p><h2>Tell Stylo your preferences</h2><div class="form"><label>Name<input id="prefName" value="Alex Rivera" /></label><label>Email<input id="prefEmail" value="alex@example.com" /></label><label>Clothing size<input id="prefSize" value="M / 32" /></label><label>Shoe size<input id="prefShoe" value="10.5" /></label><label>Budget<select id="prefBudget"><option>$100-$250 per item</option><option>Under $100 per item</option><option>$250-$500 per item</option></select></label><label>Favorite colors<input id="prefColors" value="Black, taupe, violet" /></label></div><button class="primary wide">Save preferences</button></form></dialog>
+    <div id="toast"></div>
+  </body>
+</html>
