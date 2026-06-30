@@ -1,0 +1,12 @@
+{
+  "name": "stylo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Stylo AI fashion and smart closet web app.",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
